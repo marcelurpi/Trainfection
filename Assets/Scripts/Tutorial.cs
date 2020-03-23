@@ -6,6 +6,7 @@ using UnityEngine;
 public class Tutorial : MonoBehaviour
 {
     [Header("Parameters")]
+    [SerializeField] private bool skip = false;
     [SerializeField] [Min(0)] private int charsPerSec = 0;
 
     [Header("References")]
@@ -13,12 +14,10 @@ public class Tutorial : MonoBehaviour
     [SerializeField] private TextMeshProUGUI screenTextMesh = null;
     [SerializeField] private Coroutine coroutine;
 
-    bool skip = false;
     bool showAllText = false;
 
     private void Start()
     {
-        skip = false;
         controls.HideControls();
         StartCoroutine(TutorialCoroutine());
     }
@@ -36,7 +35,7 @@ public class Tutorial : MonoBehaviour
     private IEnumerator TutorialCoroutine()
     {
         controls.HideControls();
-        if (!skip) yield return ShowTextCoroutine("Welcome to the train!\nPress S to skip the tutorial");
+        if (!skip) yield return ShowTextCoroutine("Welcome to the train!\nPress S if you want to skip the tutorial");
         if (!skip) yield return new WaitForSeconds(2);
         if (!skip) yield return ShowTextCoroutine("First we should learn how to drive the train");
         if (!skip) yield return new WaitForSeconds(1);
@@ -81,6 +80,8 @@ public class Tutorial : MonoBehaviour
         if (!skip) yield return ShowTextCoroutine("Always save some,\nyou never know when you'll need it");
         if (!skip) yield return new WaitForSeconds(2);
         if (!skip) yield return ShowTextCoroutine("You can move people to adjacent carriages\nor send meds to take care of them");
+        if (!skip) yield return new WaitForSeconds(2);
+        if (!skip) yield return ShowTextCoroutine("You can also lock the carriage\nthis prevents anything moving through (even meds)");
         if (!skip) yield return new WaitForSeconds(2);
         if (!skip) yield return ShowTextCoroutine("Finally we have the ability to\ndrop the whole carriage");
         if (!skip) yield return new WaitForSeconds(2);

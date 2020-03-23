@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Level 4
   m_EditorClassIdentifier: 
   totalRouteMeters: 25000
-  secondsToOutbreak: 40
-  secondsToInfectOthers: 20
-  secondsToKillInfected: 45
+  secondsToOutbreak: 30
+  maxOutbreaksAtOnce: 4
+  secondsToInfectOtherPassengers: 15
+  secondsToInfectAdjacentCarriages: 23
+  secondsToKillInfected: 50
   nextLevel: {fileID: 11400000, guid: 57e700d99af5d814c8fc16f71fa8c85d, type: 2}

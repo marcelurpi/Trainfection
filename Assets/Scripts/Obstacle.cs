@@ -70,7 +70,6 @@ public class Obstacle : MonoBehaviour
         metersLeftToNextObstacle -= controls.GetSpeed() * Time.deltaTime;
         if (displayObstacle)
         {
-            Debug.Log("Displaying");
             if (metersLeftToNextObstacle <= (minMetersToDisplayNextObstacle - 50)) DisplayNextObstacle();
             else screenTextMesh.text = "Nothing on sight\nGo straight on";
         }
